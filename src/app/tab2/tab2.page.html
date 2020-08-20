@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Chercher recette
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,26 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Mes recettes Favories</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <!-- Un champ de saisie du titre de recette -->
+  <ion-input  placeholder="Sasie titre" [(ngModel)]="searchRecipe" (ngModelChange)="handleSearchIntoRecipes()"></ion-input>
+
+  <ion-button color="light" (click)="handleSearchIntoRecipes()">
+    <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+  </ion-button>
+
+  <!-- <button (click)="handleSearchIntoList()">Recherche</button> -->
+
+  <div *ngFor="let recette of recettesResultSearch">
+    <ion-card>
+      <ion-img src="{{ recette.picture }}"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{ recette.title }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>      
+  </div>
+
 </ion-content>
