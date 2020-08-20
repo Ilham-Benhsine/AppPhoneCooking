@@ -13,5 +13,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Recettes"></app-explore-container>
+  <div *ngFor="let recette of recettes">
+    <ion-card>
+      <ion-img src="{{ recette.picture }}"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{ recette.title }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>      
+  </div>
+<!-- <app-explore-container name="Recettes"></app-explore-container>-->
 </ion-content>
