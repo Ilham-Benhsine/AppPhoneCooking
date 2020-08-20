@@ -2,6 +2,7 @@ import { Recette } from './../shared/models/Recette';
 import { BaseRecetteService } from './../shared/base-recette.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -13,7 +14,12 @@ export class Tab1Page implements OnInit, OnDestroy{
   recettes: Recette[];
   subscription$: Subscription;
 
-  constructor(private baseRecetteService: BaseRecetteService) {
+  constructor(private baseRecetteService: BaseRecetteService, public modalController: ModalController) {
+  }
+
+  handleClickOpenRecipe(recette: Recette){
+
+    console.log('Test');
   }
 
   ngOnInit(){

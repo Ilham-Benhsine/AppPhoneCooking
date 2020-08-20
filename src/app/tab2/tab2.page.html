@@ -14,21 +14,28 @@
   </ion-header>
 
   <!-- Un champ de saisie du titre de recette -->
-  <ion-input  placeholder="Sasie titre" [(ngModel)]="searchRecipe" (ngModelChange)="handleSearchIntoRecipes()"></ion-input>
+  <div class="app-div-search-button" >
+    <ion-input size="large" placeholder="Sasie titre" [(ngModel)]="searchRecipe" (ngModelChange)="handleSearchIntoRecipes()"></ion-input>
 
-  <ion-button color="light" (click)="handleSearchIntoRecipes()">
-    <ion-icon slot="icon-only" name="search-outline"></ion-icon>
-  </ion-button>
-
-  <!-- <button (click)="handleSearchIntoList()">Recherche</button> -->
-
-  <div *ngFor="let recette of recettesResultSearch">
-    <ion-card>
-      <ion-img src="{{ recette.picture }}"></ion-img>
-      <ion-card-header>
-        <ion-card-title>{{ recette.title }}</ion-card-title>
-      </ion-card-header>
-    </ion-card>      
+    <ion-button expand="block" color="light" (click)="handleSearchIntoRecipes()">
+      <ion-icon slot="end" name="search-outline"></ion-icon>
+    </ion-button>
   </div>
+
+  <ion-list>
+    <ion-list-header>
+      Recettes
+    </ion-list-header>
+
+    <ion-item *ngFor="let recette of recettesResultSearch">
+      <ion-avatar slot="start">
+        <img src="{{ recette.picture }}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ recette.title }}</h2>
+        <p>{{ recette.description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

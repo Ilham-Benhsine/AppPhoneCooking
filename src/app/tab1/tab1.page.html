@@ -15,7 +15,7 @@
 
   <!--Je parcours ma liste de recettes et je l'affiche comme card-->
   <div *ngFor="let recette of recettes">
-    <ion-card>
+    <ion-card (click)="handleClickOpenRecipe(recette)">
       <ion-img src="{{ recette.picture }}"></ion-img>
       <ion-card-header>
         <ion-card-title>{{ recette.title }}</ion-card-title>
