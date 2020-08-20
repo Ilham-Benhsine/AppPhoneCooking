@@ -1,3 +1,4 @@
+import { RecipeModalComponent } from './../shared/models/recipe-modal/recipe-modal.component';
 import { Recette } from './../shared/models/Recette';
 import { BaseRecetteService } from './../shared/base-recette.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -17,8 +18,18 @@ export class Tab1Page implements OnInit, OnDestroy{
   constructor(private baseRecetteService: BaseRecetteService, public modalController: ModalController) {
   }
 
-  handleClickOpenRecipe(recette: Recette){
+  async handleClickOpenRecipe(recette: Recette){
 
+    {
+      const modal = await this.modalController.create({
+        component: RecipeModalComponent,
+        cssClass: '',
+        componentProps: {
+          'recette': recette
+        }
+      });
+      return await modal.present();
+    }
     console.log('Test');
   }
 
