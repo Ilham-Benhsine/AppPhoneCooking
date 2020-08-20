@@ -1,0 +1,19 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Détails Recette</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="handleDismissModal()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-card>
+    <ion-img src="{{ recette.picture }}"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{ recette.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{ recette.description }}</ion-card-content>
+  </ion-card> 
+</ion-content>

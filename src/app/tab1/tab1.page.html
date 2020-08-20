@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Recettes du jour
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,18 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Recettes</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!--Je parcours ma liste de recettes et je l'affiche comme card-->
+  <div *ngFor="let recette of recettes">
+    <ion-card (click)="handleClickOpenRecipe(recette)">
+      <ion-img src="{{ recette.picture }}"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{ recette.title }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>      
+  </div>
+<!-- <app-explore-container name="Recettes"></app-explore-container>-->
 </ion-content>
